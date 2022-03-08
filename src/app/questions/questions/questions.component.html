@@ -1,0 +1,50 @@
+<div *ngIf="questions">
+  <h1 class="center">{{questions.name}}</h1>
+  <p class="center">{{questions.description}}</p>
+  <nav mat-tab-nav-bar class="tabs" *ngIf="questions?.sections">
+    <a mat-tab-link class="tab" *ngFor="let tab of questions.sections;let index=index">
+      <span (click)="getFields(index)">{{tab.name}}</span>
+    </a>
+  </nav>
+</div>
+<div *ngIf="fields?.length">
+  <form [formGroup]="dynamicForm" (ngSubmit)="onSubmit()" novalidate>
+    <ng-container *ngFor="let controls of fields">
+      {{controls.name}}
+      <div>
+        <input *ngIf="controls.answer_type==='text'" [type]="controls.answer_type" [formControlName]="controls.name">
+        <input *ngIf="controls.answer_type==='phone'" [type]="controls.answer_type" [formControlName]="controls.name">
+        <input *ngIf="controls.answer_type==='date'" [type]="controls.answer_type" [formControlName]="controls.name">
+        <input *ngIf="controls.answer_type==='email'" [type]="controls.answer_type" [formControlName]="controls.name">
+        <div *ngIf="controls.answer_type==='textarea'">
+          <textarea [formControlName]="controls.name"></textarea>
+        </div>
+        <select *ngIf="controls.answer_type==='select'">
+          <option value="">Please Select</option>
+          <option *ngFor="let option of controls.options" [ngValue]="option.name">{{option.name}}</option>
+        </select>
+        <input *ngIf="controls.answer_type==='radio'" type="radio" [formControlName]="controls.name"
+          [value]="controls.value">
+        <input *ngIf="controls.answer_type==='checkbox'" type="checkbox" [formControlName]="controls.name"
+          [value]="controls.value">
+
+          <canvas #canvas *ngIf="controls.answer_type==='img_diagram'" height="240" width="240" style="border: 1px solid gray;"></canvas>
+        <ng-container>
+          <span class="error"
+            *ngIf="dynamicForm.controls[controls.name].touched && dynamicForm.controls[controls.name].errors">
+            <span *ngIf="dynamicForm.controls[controls.name].errors.required">{{controls.name | titlecase}} is
+              Required</span>
+            <span *ngIf="dynamicForm.controls[controls.name].errors.pattern">
+              {{controls.name | titlecase}} Invalid Format
+              <span *ngIf="controls.name=='Home phone number'">:(123)456-789 </span>
+              <span *ngIf="controls.name=='E-mail'">:example@gmail.com </span>
+            </span>
+          </span>
+
+        </ng-container>
+      </div>
+    </ng-container>
+    <br>
+    <input type="submit" [disabled]="!dynamicForm.valid" />
+  </form>
+</div>

@@ -1,0 +1,154 @@
+{
+  "id": 2,
+  "name": "MRI questionnaire",
+  "description": "Optional description goes here",
+  "sections": [
+    {
+      "id": 1,
+      "name": "Patient information",
+      "description": "Optional description goes here",
+      "weight": 0,
+      "fields": [
+        {
+          "id": 1,
+          "name": "First name",
+          "type": "question",
+          "answer_type": "text",
+          "required": true,
+          "weight": 0,
+          "options": []
+        },
+        {
+          "id": 2,
+          "name": "Last name",
+          "type": "question",
+          "answer_type": "text",
+          "required": true,
+          "weight": 1,
+          "options": []
+        },
+        {
+          "id": 3,
+          "name": "Date of birth",
+          "type": "question",
+          "answer_type": "date",
+          "required": true,
+          "weight": 2,
+          "options": []
+        },
+        {
+          "id": 4,
+          "name": "Home phone number",
+          "type": "question",
+          "answer_type": "phone",
+          "required": false,
+          "weight": 3,
+          "options": []
+        },
+        {
+          "id": 5,
+          "name": "E-mail",
+          "type": "question",
+          "answer_type": "email",
+          "required": false,
+          "weight": 4,
+          "options": []
+        },
+        {
+          "id": 6,
+          "name": "City",
+          "type": "question",
+          "answer_type": "text",
+          "required": true,
+          "weight": 5,
+          "options": []
+        },
+        {
+          "id": 7,
+          "name": "State",
+          "type": "question",
+          "answer_type": "select",
+          "required": true,
+          "weight": 6,
+          "options": [
+            {
+              "id": 1,
+              "name": "Alabama",
+              "weight": 0
+            },
+            {
+              "id": 2,
+              "name": "California",
+              "weight": 1
+            },
+            {
+              "id": 3,
+              "name": "New York",
+              "weight": 2
+            }
+          ]
+        },
+        {
+          "id": 8,
+          "name": "How did you spend last summer?",
+          "type": "question",
+          "answer_type": "textarea",
+          "required": false,
+          "weight": 7,
+          "options": []
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Primary insurance information",
+      "description": "Optional description goes here",
+      "fields": [
+        {
+          "id": 9,
+          "name": "Insurance carrier",
+          "type": "question",
+          "answer_type": "text",
+          "required": false,
+          "weight": 0,
+          "options": []
+        },
+        {
+          "id": 10,
+          "name": "Insurance number",
+          "type": "question",
+          "answer_type": "text",
+          "required": false,
+          "weight": 1,
+          "options": []
+        },
+        {
+          "id": 10,
+          "name": "Insurance expiration date",
+          "type": "question",
+          "answer_type": "date",
+          "required": false,
+          "weight": 2,
+          "options": []
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Pain Point Images",
+      "description": "Optional description goes here",
+      "fields": [
+        {
+          "id": 9,
+          "name": "Insurance carrier",
+          "type": "question",
+          "answer_type": "img_diagram",
+          "image_url": "https://tryrealtyschool.com/img_diagram.jpg",
+          "required": true,
+          "weight": 0,
+          "options": []
+        }
+      ]
+    }
+  ]
+}
